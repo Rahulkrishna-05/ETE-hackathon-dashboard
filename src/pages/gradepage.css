@@ -1,0 +1,88 @@
+.grade-container {
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+  padding: 40px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.grade-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.back-btn {
+  background: #1e293b;
+  border: none;
+  padding: 8px 15px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #334155;
+}
+
+.rounds-grid {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.round-card {
+  flex: 1;
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.round-card:hover {
+  transform: translateY(-5px);
+  background: #334155;
+}
+
+.round-card h3 {
+  margin-bottom: 20px;
+}
+
+.round-card input {
+  width: 80px;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+}
+
+.total-card {
+  background: #16a34a;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.total-card p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.save-btn {
+  background: #22c55e;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #15803d;
+}

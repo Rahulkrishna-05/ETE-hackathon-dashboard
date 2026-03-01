@@ -1,49 +1,87 @@
 import React, { useState } from "react";
+import "./judgedashboard.css";
 import { useNavigate } from "react-router-dom";
+
+const teams = [
+  { name: "Team Alpha", members: 3 },
+  { name: "Team Beta", members: 4 },
+  { name: "Team Gamma", members: 2 }
+];
 
 function JudgeDashboard() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-
-  const teams = [
-    "Team Alpha",
-    "Team Beta",
-    "Team Gamma"
-  ];
+  const [activeMenu, setActiveMenu] = useState("dashboard");
 
   return (
-    <>
-      {/* Top Navbar */}
-      <div className="navbar">
-        <div className="logo">Hackathon Judge Panel</div>
+    <div className="judge-container">
+      
+      {/* Sidebar */}
+      <div className="sidebar">
+        <h2>Hackathon</h2>
+        <ul>
+          <li
+            className={activeMenu === "dashboard" ? "active" : ""}
+            onClick={() => setActiveMenu("dashboard")}
+          >
+            Dashboard
+          </li>
 
-        <div className="dropdown">
-          <button onClick={() => setOpen(!open)}>
-            Teams ▼
-          </button>
+          <li
+            className={activeMenu === "teams" ? "active" : ""}
+            onClick={() => setActiveMenu("teams")}
+          >
+            Teams
+          </li>
+        </ul>
+      </div>
 
-          {open && (
-            <div className="dropdown-content">
+      {/* Main Content */}
+      <div className="main-content">
+
+        {activeMenu === "dashboard" && (
+          <>
+            <h1>Welcome Back, Judge</h1>
+
+            <div className="cards fade-in">
+              <div className="card">
+                <h3>Registered Teams</h3>
+                <p>15</p>
+              </div>
+
+              <div className="card">
+                <h3>Total Participants</h3>
+                <p>56</p>
+              </div>
+
+              <div className="card">
+                <h3>Average Rating</h3>
+                <p>7.8</p>
+              </div>
+            </div>
+          </>
+        )}
+
+        {activeMenu === "teams" && (
+          <div className="teams-section slide-in">
+            <h2>Teams List</h2>
+
+            <div className="team-grid">
               {teams.map((team) => (
                 <div
-                  key={team}
-                  onClick={() => navigate(`/grade/${team}`)}
+                  key={team.name}
+                  className="team-card"
+                  onClick={() => navigate(`/judge/team/${team.name}`)}
                 >
-                  {team}
+                  <h3>{team.name}</h3>
+                  <p>{team.members} Members</p>
                 </div>
               ))}
             </div>
-          )}
-        </div>
-      </div>
+          </div>
+        )}
 
-      <div className="container">
-        <h2>Welcome Judge</h2>
-        <div className="card">
-          Select a team from the top right "Teams" menu to start grading.
-        </div>
       </div>
-    </>
+    </div>
   );
 }
 

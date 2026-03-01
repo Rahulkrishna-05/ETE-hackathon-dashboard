@@ -19,7 +19,7 @@ function Dashboard() {
     <div className="dashboard-container">
       
       <div className="topbar">
-        <h2>Hackathon Dashboard</h2>
+        <h2>Student details</h2>
 
         <select
           value={selectedTeam}

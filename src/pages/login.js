@@ -10,7 +10,7 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (email === "admin@hackathon.com" && password === "1234") {
+    if (email === "student@hackathon.com" && password === "1234") {
       navigate("/dashboard");
     } else if (email === "judge@hackathon.com" && password === "1234") {
       navigate("/judge");
@@ -22,7 +22,7 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-card" onSubmit={handleLogin}>
-        <h2>Hackathon Login</h2>
+        <h2>ETE-6.0</h2>
 
         <input
           type="email"
